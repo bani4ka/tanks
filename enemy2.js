@@ -22,6 +22,7 @@ class Enemy{
         this.x += (this.tx - this.x)/dist*2.5;
         this.y +=(this.ty - this.y)/dist*2.5;
     }
-    
-}
-    
+    shoot(){
+
+    }
+}   
