@@ -1,19 +1,18 @@
 class Player{
     //Player's constructor
-    constructor(_x,_y,_size,_color,_hp/*,_broiP,_bulletX,_bulletY,_isShot,_dX,_dY,_isMouseDown,_cooldown*/){
+    constructor(_x,_y,_size,_color,_hp,_bX,_bY,_tX,_tY){
         this.x = _x;
         this.y = _y;
         this.size = _size;
         this.color = _color;
         this.hp = _hp;
-        /*this.broiP = _broiP;
-        this bulletX = _bulletX;
-        this.buleltY = _bulletY;
-        this.isShot = _isShot;
-        this.dX = _dX;
-        this.dY = _dY;
-        this.isMouseDown = _isMouseDown;
-        this.cooldown = _cooldown;*/
+        this.bX = _bX;
+        this.bY = _bY;
+        this.tX = _tX;
+        this.tY = _tY;
+        let dist = Math.sqrt((this.tx-this.x)*(this.tx-this.x) + (this.ty-this.y)*(this.ty-this.y));
+        this.dx = (this.tx-this.x)/dist*3;
+        this.dy = (this.ty-this.y)/dist*3;
     }
     //Player's movement
     move(){
@@ -35,15 +34,11 @@ class Player{
         context.beginPath();
         context.arc(this.x,this.y,this.size,0,Math.PI*2);
         context.fill();
-        context.clo
+        context.closePath();
     }
     //Player's shooting
-    /*shoot(){
-        for(var i=0;i<broiP;++i){
-            if(isShot[i]){
-                bulletX[i]=bulletX[i]+dX[i];
-                bulletY[i]=bulletY[i]+dY[i];
-            }
-        }
-    }*/
+    shoot(){
+         this.x += this.dx;
+         this.y += this.dy;
+    }
 }
